@@ -47,6 +47,10 @@ class DeploymentService(DeploymentBase):
         app.synth()
         yield DeploymentUpEvent(message=f"Results written to: {out_dir}")
 
+        # This is only necessary if the container is running as root
+        # With rootless docker or podman then a chown will not be necessary
+        os.chmod(f"{out_dir}/stacks/{full_stack_name}", 0o777)
+
         yield DeploymentUpEvent(message="Done")
 
     async def down(
