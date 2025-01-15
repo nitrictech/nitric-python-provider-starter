@@ -1,0 +1,20 @@
+[project]
+name = "python-terraform-provider-poc"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "asyncio>=3.4.3",
+    "betterproto>=2.0.0b6",
+    "cdktf>=0.20.10",
+    "docker>=7.1.0",
+    "protobuf>=4.23.3",
+    "nitric ==1.2.3",
+    "cdktf-cdktf-provider-aws>=19.49.1",
+]
+
+[dependency-groups]
+dev = [
+    "grpcio-tools>=1.62.3",
+]
